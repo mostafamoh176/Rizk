@@ -27,6 +27,14 @@ TextStyle GetBoldStyle({color}) {
     fontSize: FontSizeManager.s20,
   );
 }
+TextStyle GetXBoldStyle({color}) {
+  return GetTextStyle(
+    fontFamily: FontConstrains.mainFamily,
+    fontWeight: FontWeightManager.bold,
+    color: color,
+    fontSize: FontSizeManager.s40,
+  );
+}
 
 TextStyle GetMediuemStyle({color,fontsize}) {
   return GetTextStyle(

@@ -4,6 +4,7 @@ import 'package:shanta/features/Register/responsive_crossPlatform/register_respn
 import 'package:shanta/features/otp/responsive_crossplatform/mob_view.dart';
 import 'package:shanta/features/otp/units/otp_units.dart';
 import 'package:shanta/features/splash/splash-responsive_crssplatform/mob_view.dart';
+import 'package:shanta/features/welcome_screen/responsive_platform/mob_view.dart';
 
 class MyApp extends StatelessWidget {
   MyApp._internal();
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OTP_View(),
+      home: WelcomeView(),
     );
   }
 }
