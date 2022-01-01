@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shanta/constant/color_manager.dart';
 import 'package:shanta/constant/style_manager.dart';
+import 'package:shanta/features/splash/units/SplashViewUnits.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({Key? key}) : super(key: key);
@@ -36,7 +37,9 @@ class WelcomeView extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height:30 ,),
+          SizedBox(
+            height: 30,
+          ),
           CircleAvatar(
             backgroundColor: ColorManager.white,
             radius: 50,
@@ -49,6 +52,49 @@ class WelcomeView extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 20,
+              bottom: 20,
+              right: 40,
+              left: 40,
+            ),
+            child: DefaultInkwellButton(
+              B_name: "Change Profile Picture",
+              C_color: ColorManager.white,
+              T_color: ColorManager.primary,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 20,
+              bottom: 20,
+              right: 40,
+              left: 40,
+            ),
+            child: DefaultInkwellButton(
+              B_name: "Upload Picture",
+              C_color: ColorManager.white,
+              T_color: ColorManager.primary,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 20,
+              bottom: 20,
+              right: 40,
+              left: 40,
+            ),
+            child: DefaultInkwellButton(
+              B_name: "Skip",
+              C_color: ColorManager.primary,
+              T_color: ColorManager.white,
+            ),
+          )
+
         ],
       ),
     );
