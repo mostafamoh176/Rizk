@@ -106,7 +106,7 @@ class WelcomeView extends StatelessWidget {
               C_color: ColorManager.primary,
               T_color: ColorManager.white,
             ),
-          )
+          ),
 
         ],
       ),
