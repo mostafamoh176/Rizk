@@ -93,21 +93,6 @@ class WelcomeView extends StatelessWidget {
               C_color: ColorManager.primary,
               T_color: ColorManager.white,
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 20,
-              bottom: 20,
-              right: 40,
-              left: 40,
-            ),
-            child: DefaultInkwellButton(
-              B_name: "Skip",
-              C_color: ColorManager.primary,
-              T_color: ColorManager.white,
-            ),
-          )
-
 
         ],
       ),
