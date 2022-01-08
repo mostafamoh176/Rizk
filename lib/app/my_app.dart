@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shanta/features/Register/login-respnsive_crossplatform/mob_view.dart';
-import 'package:shanta/features/Register/responsive_crossPlatform/register_respnsive_crossplatform/mob_view.dart';
-import 'package:shanta/features/otp/responsive_crossplatform/mob_view.dart';
-import 'package:shanta/features/otp/units/otp_units.dart';
+import 'package:shanta/constant/routes/routes_manager.dart';
+import 'package:shanta/core/Storage/shared_pref.dart';
+import 'package:shanta/features/Home/Home-responsive_crssplatform/mob_view.dart';
 import 'package:shanta/features/splash/splash-responsive_crssplatform/mob_view.dart';
-import 'package:shanta/features/welcome_screen/responsive_platform/mob_view.dart';
 
 class MyApp extends StatelessWidget {
   MyApp._internal();
@@ -17,7 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WelcomeView(),
+      onGenerateRoute: onGenerateRoute,
+      home: AppStorage.isLogged?HomeView():M_SplashScreenView(),
     );
   }
 }

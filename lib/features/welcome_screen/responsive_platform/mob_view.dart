@@ -65,7 +65,7 @@ class WelcomeView extends StatelessWidget {
             child: DefaultInkwellButton(
               B_name: "Change Profile Picture",
               C_color: ColorManager.white,
-              T_color: ColorManager.primary,
+              T_color: ColorManager.primary, onTap: () {  },
             ),
           ),
           Padding(
@@ -78,7 +78,7 @@ class WelcomeView extends StatelessWidget {
             child: DefaultInkwellButton(
               B_name: "Upload Picture",
               C_color: ColorManager.white,
-              T_color: ColorManager.primary,
+              T_color: ColorManager.primary, onTap: () {  },
             ),
           ),
           Padding(
@@ -91,24 +91,9 @@ class WelcomeView extends StatelessWidget {
             child: DefaultInkwellButton(
               B_name: "Skip",
               C_color: ColorManager.primary,
-              T_color: ColorManager.white,
+              T_color: ColorManager.white, onTap: () {  },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 20,
-              bottom: 20,
-              right: 40,
-              left: 40,
-            ),
-            child: DefaultInkwellButton(
-              B_name: "Skip",
-              C_color: ColorManager.primary,
-              T_color: ColorManager.white,
-            ),
-          )
-
-
         ],
       ),
     );

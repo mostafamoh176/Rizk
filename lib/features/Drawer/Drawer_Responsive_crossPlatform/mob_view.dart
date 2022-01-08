@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:shanta/constant/color_manager.dart';
-import 'package:shanta/constant/style_manager.dart';
 
-class CheckOutView extends StatelessWidget {
-  const CheckOutView({Key? key}) : super(key: key);
-
+class DefaultDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leadingWidth: 100,
-        elevation: 0,
-        title: Row(
+    return Drawer(
+      backgroundColor: ColorManager.primary,
+      child: Container(
+        child: Column(
           children: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.arrow_back, color: ColorManager.grey),
+            DrawerHeader(
+              child: CircleAvatar(
+                radius:25,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(23),
+                  child: Image(
+                    height: 46,
+                    width: 46,
+                    image: AssetImage("assets/images/msg.png"),
+                  ),
+                ),
+              ),
             ),
-            Text(
-              "Checkout",
-              style: GetSemiBoldStyle(color: ColorManager.grey),
-            )
+
           ],
         ),
-        backgroundColor: ColorManager.white,
       ),
-
     );
   }
 }

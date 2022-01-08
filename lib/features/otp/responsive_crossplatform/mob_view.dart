@@ -28,7 +28,7 @@ class OTP_View extends StatelessWidget {
         ),
         body: ListView(
           children: [
-            DefaultLoginImage(),
+            DefaultLoginImage(ctx: context),
             Container(
               height: sizeFromHeight(context, 1),
               width: double.infinity,
@@ -111,7 +111,7 @@ class OTP_View extends StatelessWidget {
                   DefaultInkwellButton(
                     B_name: "VERIFY OTP",
                     C_color: ColorManager.primary,
-                    T_color: ColorManager.white,
+                    T_color: ColorManager.white, onTap: () {  },
                   ),
                   SizedBox(height: 20,),
                   TimmerCountDown(cont: context,)

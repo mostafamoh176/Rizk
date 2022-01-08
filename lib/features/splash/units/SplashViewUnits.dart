@@ -42,14 +42,18 @@ class DefaultInkwellButton extends StatelessWidget {
   String B_name;
   late final C_color;
   late final T_color;
+  late final onTap;
 
   DefaultInkwellButton(
-      {required this.B_name, required this.C_color, required this.T_color,});
+      {required this.B_name,
+      required this.C_color,
+      required this.T_color,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         height: 58,
         width: 249,
@@ -65,9 +69,7 @@ class DefaultInkwellButton extends StatelessWidget {
             style: GetSemiBoldStyle(color: T_color),
           ),
         ),
-
       ),
     );
   }
 }
-

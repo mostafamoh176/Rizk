@@ -1,15 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shanta/constant/color_manager.dart';
+import 'package:shanta/constant/responsive.dart';
 import 'package:shanta/constant/style_manager.dart';
 
 class DefaultLoginImage extends StatelessWidget {
+  late BuildContext ctx;
+
+  DefaultLoginImage({required this.ctx});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
-        height: 130,
+        height: sizeFromHeight(ctx, 4),
         child: Image(
           image: AssetImage("assets/images/s1.png"),
         ),
@@ -44,9 +49,6 @@ class DefaultTextForm extends StatelessWidget {
             labelText: labelText,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(5),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: ColorManager.grey),
             ),
           ),
         ),

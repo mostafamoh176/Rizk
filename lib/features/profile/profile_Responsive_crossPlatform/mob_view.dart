@@ -1,131 +1,144 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shanta/constant/color_manager.dart';
 import 'package:shanta/constant/style_manager.dart';
-import 'package:shanta/features/splash/units/SplashViewUnits.dart';
 
-class CartView extends StatelessWidget {
-  const CartView({Key? key}) : super(key: key);
+class ProfileView extends StatelessWidget {
+  const ProfileView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 100,
+        systemOverlayStyle:
+            SystemUiOverlayStyle(statusBarColor: ColorManager.primary),
         elevation: 0,
+        backgroundColor: ColorManager.primary,
+        leadingWidth: 50,
         title: Row(
           children: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.arrow_back, color: ColorManager.grey),
-            ),
+            IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
             Text(
-              "Your Cart",
-              style: GetSemiBoldStyle(color: ColorManager.grey),
+              "My Account",
+              style: GetSemiBoldStyle(
+                color: ColorManager.white,
+              ),
             )
           ],
         ),
-        backgroundColor: ColorManager.white,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: InkWell(
+              child: Container(
+                decoration: BoxDecoration(
+                    color: ColorManager.white,
+                    borderRadius: BorderRadius.circular(50)),
+                height: 30,
+                width: 80,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: FittedBox(
+                    child: Text(
+                      "Edit Profile",
+                      textAlign: TextAlign.center,
+                      style: GetregularStyle(color: ColorManager.primary),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
       ),
+      backgroundColor: ColorManager.primary,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            height: 500,
-            child: ListView.builder(
-                itemCount: 10, itemBuilder: (context, index) => DefaultCart()),
+          SizedBox(
+            height: 20,
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: CircleAvatar(
+              backgroundColor: ColorManager.white,
+              radius: 56,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(55),
+                child: Image(
+                  image: AssetImage("assets/images/p.jpg"),
+                  width: 110,
+                  height: 110,
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
           ),
           SizedBox(
-            height: 40,
+            height: 10,
           ),
           Text(
-            "TOTAL AMOUNT",
-            style: GetSemiBoldStyle(color: ColorManager.grey2),
+            "Pankaj Patel",
+            style: GetBoldStyle(color: ColorManager.white),
+          ),
+          SizedBox(
+            height: 10,
           ),
           Text(
-            "\$1700.00",
-            style: GetBoldStyle(color: Colors.black),
+            "mostafamoh176@gmail.com",
+            style: GetregularStyle(color: ColorManager.grey3),
           ),
           SizedBox(
             height: 20,
           ),
-          DefaultInkwellButton(
-              B_name: "CHECKOUT",
-              C_color: ColorManager.primary,
-              T_color: ColorManager.white)
-        ],
-      ),
-    );
-  }
-}
-
-class DefaultCart extends StatelessWidget {
-  const DefaultCart({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Card(
-        elevation: 5,
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
-              ),
-              child: Image(
-                  height: 80,
-                  width: 100,
-                  image: AssetImage("assets/images/p.jpg"),
-                  fit: BoxFit.fill),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("Ramni Chair"),
-                Text(
-                  "\$1700",
-                  style: GetregularStyle(color: ColorManager.grey),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: ColorManager.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(25),
+                  topRight: Radius.circular(25),
                 ),
-                Row(
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: ColorManager.grey3,
-                      radius: 20,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.add,
-                          size: 14,
-                          color: ColorManager.grey,
-                        ),
-                      ),
-                    ),
-                    Padding(
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 30.0),
+                child: ListView.builder(
+                  itemCount: 4,
+                    itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("1"),
-                    ),
-                    CircleAvatar(
-                      backgroundColor: ColorManager.grey3,
-                      radius: 20,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.remove,
-                          size: 14,
-                          color: ColorManager.grey,
-                        ),
+                      child: Card(
+                        elevation: 10,
+                        color: ColorManager.grey3,
+                        child: ListTile(
+                              leading: Icon(
+                                Icons.directions_car,
+                                color: ColorManager.grey,
+                              ),
+                              title: Text(
+                                "Upcomming Orders",
+                                style: GetregularStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
+                              trailing: Container(
+                                height: 15,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                    color: ColorManager.white,
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: Text(
+                                  "5",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(color: ColorManager.primary),
+                                ),
+                              ),
+                            ),
                       ),
-                    ),
-                  ],
-                )
-              ],
-            )
-          ],
-        ),
+                    )),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

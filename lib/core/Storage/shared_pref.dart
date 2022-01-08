@@ -1,33 +1,27 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Shared {
+class AppStorage {
   static late SharedPreferences _sharedPreferences;
 
   static Future<void> intial() async =>
       _sharedPreferences = await SharedPreferences.getInstance();
 
-  static Future<void> setData({
-    required email,
-    required ApiToken,
-    required uid,
-    required phone,
-    required Name,
-  }) async {
-    _sharedPreferences.setString("email", email);
-    _sharedPreferences.setString("ApiToken", ApiToken);
+  static Future<void>cashUserData(
+    String name,
+    String email,
+    String apiToken,
+    String uid,
+    String phone,
+  ) async {
+    _sharedPreferences.setString("Email", email);
+    _sharedPreferences.setString("ApiToken", apiToken);
     _sharedPreferences.setString("UID Key", uid);
     _sharedPreferences.setString("phone", phone);
-    _sharedPreferences.setString("name", Name);
+    _sharedPreferences.setString("name", name);
   }
-
-  static Future<void> setDataInLog({email, ApiToken}) async {
-    _sharedPreferences.setString("email", email);
-    _sharedPreferences.setString("ApiToken", ApiToken);
-  }
-
   static bool get isLogged => _sharedPreferences.containsKey("ApiToken");
 
-  static String get emailSh => _sharedPreferences.getString("email")!;
+  static String get email => _sharedPreferences.getString("Email")!;
 
   static String get ApiToken => _sharedPreferences.getString("ApiToken")!;
 
