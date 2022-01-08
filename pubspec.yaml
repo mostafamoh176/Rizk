@@ -38,6 +38,7 @@ dependencies:
   pin_code_fields: ^7.3.0
   dio: ^4.0.4
   shared_preferences: ^2.0.11
+  smooth_page_indicator: ^1.0.0+2
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,8 @@ flutter:
     - assets/images/s2.png
     - assets/images/s3.png
     - assets/images/p.jpg
+    - assets/images/msg.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

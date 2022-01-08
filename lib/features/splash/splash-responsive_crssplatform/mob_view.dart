@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shanta/constant/color_manager.dart';
 import 'package:shanta/constant/style_manager.dart';
+import 'package:shanta/features/Register/login-respnsive_crossplatform/mob_view.dart';
+import 'package:shanta/features/Register/responsive_crossPlatform/register_respnsive_crossplatform/mob_view.dart';
 import 'package:shanta/features/splash/cubit_splash/splash_cubit.dart';
 import 'package:shanta/features/splash/units/SplashViewUnits.dart';
 
@@ -32,6 +34,10 @@ class M_SplashScreenView extends StatelessWidget {
               B_name: 'Get Started',
               C_color: ColorManager.white,
               T_color: ColorManager.primary,
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => RegisterView()));
+              },
             ),
             SizedBox(
               height: 10,
@@ -40,6 +46,10 @@ class M_SplashScreenView extends StatelessWidget {
               B_name: 'SIGN IN',
               C_color: ColorManager.primary,
               T_color: ColorManager.white,
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => LoginView()));
+              },
             ),
             SizedBox(
               height: 100,
