@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
-      home: AppStorage.isLogged?HomeView():M_SplashScreenView(),
+      home:M_SplashScreenView(),
     );
   }
 }

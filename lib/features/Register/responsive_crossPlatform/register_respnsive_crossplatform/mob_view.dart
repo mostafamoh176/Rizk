@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shanta/constant/color_manager.dart';
 import 'package:shanta/constant/responsive.dart';
+import 'package:shanta/core/Validator/validator.dart';
 import 'package:shanta/features/Register/responsive_crossPlatform/register_cubit/register_cubit.dart';
 import 'package:shanta/features/Register/units/Register_view_units.dart';
 import 'package:shanta/features/splash/units/SplashViewUnits.dart';
@@ -17,7 +18,7 @@ class RegisterView extends StatelessWidget {
           // TODO: implement listener
         },
         builder: (context, state) {
-          var cubit=RegisterCubit.get(context);
+          var cubit = RegisterCubit.get(context);
           return Scaffold(
             backgroundColor: ColorManager.primary,
             appBar: AppBar(
@@ -29,7 +30,9 @@ class RegisterView extends StatelessWidget {
             ),
             body: ListView(
               children: [
-                DefaultLoginImage(ctx: context,),
+                DefaultLoginImage(
+                  ctx: context,
+                ),
                 Container(
                   height: sizeFromHeight(context, 1.35),
                   width: double.infinity,
@@ -56,57 +59,39 @@ class RegisterView extends StatelessWidget {
                             height: 20,
                           ),
                           DefaultTextForm(
-                            validator: (String? v) {
-                              return "Enter Your Name";
-                            },
-                            onSaved: (String? v) {
-                              cubit.name=v!;
-                            },
+                            validator: Validator.name,
+                            onSaved: (v) => cubit.name = v!,
                             labelText: 'User Name',
                           ),
                           SizedBox(
                             height: 20,
                           ),
                           DefaultTextForm(
-                            validator: (String? v) {
-                              return "Enter Your Mail";
-                            },
-                            onSaved: (String? v) {
-                              cubit.email=v!;
-                            },
+                            validator: Validator.email,
+                            onSaved: (v) => cubit.email = v!,
                             labelText: 'User Email',
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           DefaultTextForm(
-                            validator: (String? v) {
-                              return "Enter Your Number";
-                            },
-                            onSaved: (String? v) {
-                              cubit.phone=v!;
-                            },
+                            validator: Validator.phone,
+                            onSaved: (v) => cubit.phone = v!,
                             labelText: 'Mobile Phone',
                           ),
                           SizedBox(
                             height: 20,
                           ),
                           DefaultTextForm(
-                            validator: (String? v) {
-                              return "Enter Your Password";
-                            },
-                            onSaved: (String? v) {
-                              cubit.password=v!;
-                            },
+                            validator: Validator.password,
+                            onSaved: (v) => cubit.password = v!,
                             labelText: 'Password',
                           ),
                           SizedBox(
                             height: 10,
                           ),
                           DefaultTextForm(
-                            validator: (String? v) {
-                              return "Enter Your correct password";
-                            },
+                            validator:Validator.password,
                             onSaved: (String? v) {},
                             labelText: 'Confirm Password',
                           ),
@@ -115,17 +100,24 @@ class RegisterView extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(20.0),
-                            child: DefaultInkwellButton(
+                            child:
+                            state is RegisterLoading?
+                            Center(child: CircularProgressIndicator()):
+                            DefaultInkwellButton(
                               B_name: "Sign In",
                               C_color: ColorManager.primary,
-                              T_color: ColorManager.white, onTap:()=> cubit.SignUp(),),
+                              T_color: ColorManager.white,
+                              onTap:()=> cubit.SignUp(),
+                            ),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(20.0),
                             child: DefaultInkwellButton(
                               B_name: "Forget Password?",
                               C_color: ColorManager.white,
-                              T_color: ColorManager.grey, onTap: () {},),
+                              T_color: ColorManager.grey,
+                              onTap: () {},
+                            ),
                           )
                         ],
                       ),

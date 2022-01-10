@@ -25,7 +25,7 @@ class DefaultLoginImage extends StatelessWidget {
 
 class DefaultTextForm extends StatelessWidget {
   Function(String?)? onSaved;
-  String Function(String?)? validator;
+  String? Function(String?)? validator;
   String labelText;
 
   DefaultTextForm(

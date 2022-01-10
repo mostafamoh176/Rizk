@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shanta/constant/color_manager.dart';
 import 'package:shanta/constant/style_manager.dart';
 import 'package:shanta/features/Register/units/Register_view_units.dart';
@@ -241,6 +242,7 @@ class HomeView extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: ColorManager.white),
         backgroundColor: ColorManager.white,
         elevation: 0,
         leading: Builder(builder: (context) {
@@ -502,6 +504,5 @@ class HomeView extends StatelessWidget {
 
 class model {
   late String txt;
-
   model({required this.txt});
 }

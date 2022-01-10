@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shanta/Widgets/showSnackBar.dart';
 import 'package:shanta/constant/routes/routes_manager.dart';
@@ -21,6 +22,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   Future<void> SignUp() async {
     if (!myForm.currentState!.validate()) return null;
+    print("mostafa");
     myForm.currentState!.save();
     emit(RegisterLoading());
     final body = {
@@ -30,18 +32,21 @@ class RegisterCubit extends Cubit<RegisterState> {
     };
     try {
       final response =
-          await DioHelper.postData("signInWithPassword", Data: body);
+          await DioHelper.postData("signUp", Data: body);
       if (response.statusCode == 200) {
         await AppStorage.cashUserData(name, email, response.data["idToken"],
             response.data["localId"], phone);
-        MagicRoute.navigatorAndReplacement(HomeView());
+        MagicRoute.navigatorAndPopAll(HomeView());
+        print(response.data);
       } else {
-        showSnackBar(response.data["error"]["message"], isError: true);
+    showSnackBar(response.data["error"]["message"], isError: true);
       }
     } on DioError catch (e) {
-      showSnackBar(e.message, isError: true);
+    showSnackBar(e.message, isError: true);
+      print(e.message.toString());
     } catch (e) {
-      showSnackBar(e.toString(), isError: true);
+    showSnackBar(e.toString(), isError: true);
+      print(e.toString());
     }
     emit(RegisterInitial());
   }
